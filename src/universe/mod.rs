@@ -242,24 +242,25 @@ impl Universe {
 }
 
 fn get_structure_regions() -> Result<FnvHashMap<LocationID, RegionID>> {
-    let mut resp =
-        reqwest::blocking::Client::new().get("http://evernus.anver.ee/citadel.json")
-                                        .header("user-agent", esi::USER_AGENT)
-                                        .send()?;
+    
+    //let mut resp =
+    //    reqwest::blocking::Client::new().get("http://evernus.anver.ee/citadel.json")
+    //                                   .header("user-agent", esi::USER_AGENT)
+    //                                    .send()?;
 
-    if !resp.status().is_success() {
-        bail!("could not load structures from 3rd party API - non-200 HTTP status!")
-    }
+    //if !resp.status().is_success() {
+    //    bail!("could not load structures from 3rd party API - non-200 HTTP status!")
+    //}
 
-    let mut body = String::new();
-    resp.read_to_string(&mut body)?;
+    //let mut body = String::new();
+    //resp.read_to_string(&mut body)?;
 
-    let structures: FnvHashMap<String, Structure> = serde_json::from_str(&body)?;
+    //let structures: FnvHashMap<String, Structure> = serde_json::from_str(&body)?;
     let mut result: FnvHashMap<LocationID, RegionID> = FnvHashMap::default();
-
-    for (location_id, data) in structures {
-        result.insert(location_id.parse()?, data.region_id);
-    }
+    
+    //for (location_id, data) in structures {
+    //result.insert(location_id.parse()?, data.region_id);
+    //}
 
     Ok(result)
 }
