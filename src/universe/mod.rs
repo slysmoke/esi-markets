@@ -243,7 +243,7 @@ impl Universe {
 
 fn get_structure_regions() -> Result<FnvHashMap<LocationID, RegionID>> {
     let mut resp =
-        reqwest::blocking::Client::new().get("https://stop.hammerti.me.uk/api/structure/all")
+        reqwest::blocking::Client::new().get("http://evernus.anver.ee/citadel.json")
                                         .header("user-agent", esi::USER_AGENT)
                                         .send()?;
 
